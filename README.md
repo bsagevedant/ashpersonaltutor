@@ -1,5 +1,5 @@
 # Ash Personal Tutor
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/3f9079e7-63aa-4395-b9f7-a0253aa0607a)
 
 A modern web application built with Next.js that provides personalized tutoring capabilities. This application leverages AI to create an interactive and engaging learning experience.
 
