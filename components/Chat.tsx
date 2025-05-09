@@ -2,6 +2,7 @@ import FinalInputArea from "./FinalInputArea";
 import { useEffect, useRef, useState } from "react";
 import simpleLogo from "../public/simple-logo.png";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 export default function Chat({
   messages,
@@ -80,7 +81,30 @@ export default function Chat({
                     />
                     <div className="w-full pl-10 whitespace-pre-wrap">
                       <div className="prose prose-sm lg:prose-base max-w-none">
-                        {message.content}
+                        <ReactMarkdown
+                          components={{
+                            p: ({ children }) => <p className="mb-6 leading-relaxed">{children}</p>,
+                            ul: ({ children }) => <ul className="list-disc pl-8 mb-6 space-y-2">{children}</ul>,
+                            ol: ({ children }) => <ol className="list-decimal pl-8 mb-6 space-y-2">{children}</ol>,
+                            li: ({ children }) => <li className="mb-1">{children}</li>,
+                            h1: ({ children }) => <h1 className="text-3xl font-bold mb-6 mt-8">{children}</h1>,
+                            h2: ({ children }) => <h2 className="text-2xl font-bold mb-4 mt-6">{children}</h2>,
+                            h3: ({ children }) => <h3 className="text-xl font-bold mb-3 mt-5">{children}</h3>,
+                            code: ({ children }) => <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">{children}</code>,
+                            pre: ({ children }) => (
+                              <pre className="bg-gray-100 p-4 rounded-lg mb-6 overflow-x-auto text-sm font-mono">
+                                {children}
+                              </pre>
+                            ),
+                            blockquote: ({ children }) => (
+                              <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-6 text-gray-700">
+                                {children}
+                              </blockquote>
+                            ),
+                          }}
+                        >
+                          {message.content}
+                        </ReactMarkdown>
                       </div>
                     </div>
                   </div>

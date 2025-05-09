@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 import "./globals.css";
-import Image from "next/image";
-import bgImage from "../public/new-bg.png";
 import { ThemeProvider, ThemeToggle } from "@/components/ThemeProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -53,11 +51,6 @@ export default function RootLayout({
         className={`${montserrat.className} flex h-full flex-col justify-between text-gray-700 dark:text-gray-200 antialiased bg-white dark:bg-gray-900`}
       >
         <ThemeProvider>
-          <Image
-            src={bgImage}
-            alt=""
-            className="absolute inset-0 -z-10 max-h-full max-w-full blur-[2px] dark:opacity-50"
-          />
           <ThemeToggle />
           {children}
         </ThemeProvider>

@@ -182,8 +182,13 @@ export default function Home() {
                         href={source.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block text-xs text-muted-foreground hover:text-primary truncate"
+                        className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary truncate"
                       >
+                        <img
+                          src={`https://www.google.com/s2/favicons?domain=${source.url}&sz=32`}
+                          alt={`${source.name} favicon`}
+                          className="w-4 h-4"
+                        />
                         {source.name}
                       </a>
                     ))}
